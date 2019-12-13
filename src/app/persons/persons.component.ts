@@ -10,7 +10,7 @@ export class PersonsComponent {
 
 @Input() personList: string [];
 @Input() playerList: any [];
-constructor( prsSerice :PersonsService){
+constructor( prsSerice: PersonsService) {
   this.personList = prsSerice.persons;
 }
 

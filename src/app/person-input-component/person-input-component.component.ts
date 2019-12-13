@@ -10,12 +10,17 @@ import { PersonsService } from '../persons/persons.service';
 export class PersonInputComponentComponent {
   enteredPersonName = '';
   // @Output() personCreated = new EventEmitter<string>();
-  constructor(private PersonsService: PersonsService)
+  // tslint:disable-next-line: no-shadowed-variable
+  constructor(private PersonsService: PersonsService) {}
   onCreatePerson( ) {
-    try{
+    try {
+      if (this.enteredPersonName === '') {
+        alert('Please enter a name');
+        return ;
+      }
       //  this.personCreated.emit(this.enteredPersonName)
       this.PersonsService.addPerson(this.enteredPersonName);
-;      console.log('user created' + this.enteredPersonName);
+      console.log('user created' + this.enteredPersonName);
       this.enteredPersonName = '';
       // if(this.enteredPersonName==='abhi'){
       // console.log('user created' + this.enteredPersonName );
@@ -24,7 +29,7 @@ export class PersonInputComponentComponent {
       //   console.log("nothing"+this.enteredPersonName);
       // }
       // PersonsComponent.personList.push(personName);
-    }catch(err){
+    } catch (err) {
       console.log('error at onCreatePerson---->' + err);
     }
 
