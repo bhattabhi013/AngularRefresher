@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PersonsService } from './persons.service';
 
 @Component({
   selector: 'app-persons',
@@ -9,4 +10,8 @@ export class PersonsComponent {
 
 @Input() personList: string [];
 @Input() playerList: any [];
+constructor( prsSerice :PersonsService){
+  this.personList = prsSerice.persons;
+}
+
 }

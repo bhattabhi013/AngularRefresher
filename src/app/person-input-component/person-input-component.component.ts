@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PersonsComponent } from '../persons/persons.component';
+import { PersonsService } from '../persons/persons.service';
 
 @Component({
   selector: 'app-person-input-component',
@@ -7,12 +8,15 @@ import { PersonsComponent } from '../persons/persons.component';
   styleUrls: ['./person-input-component.component.css']
 })
 export class PersonInputComponentComponent {
-  enteredPersonName: string;
-  @Output() personCreated = new EventEmitter<string>();
+  enteredPersonName = '';
+  // @Output() personCreated = new EventEmitter<string>();
+  constructor(private PersonsService: PersonsService)
   onCreatePerson( ) {
     try{
-       this.personCreated.emit(this.enteredPersonName)
+      //  this.personCreated.emit(this.enteredPersonName)
+      this.PersonsService.addPerson(this.enteredPersonName);
 ;      console.log('user created' + this.enteredPersonName);
+      this.enteredPersonName = '';
       // if(this.enteredPersonName==='abhi'){
       // console.log('user created' + this.enteredPersonName );
 

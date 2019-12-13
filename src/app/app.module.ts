@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonInputComponentComponent } from './person-input-component/person-input-component.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { PersonsService } from './persons/persons.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +15,10 @@ import { PersonInputComponentComponent } from './person-input-component/person-i
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [PersonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
