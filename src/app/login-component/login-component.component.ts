@@ -15,14 +15,18 @@ console.log('event us ' + JSON.stringify(event));
 console.log('value is ' + event.srcElement.value);
 }
 onLogin(text) {
-console.log('Login pressed' + text);
-console.log('valUserName pressed' + this.valUserName);
-console.log('valPassName pressed' + this.valPassName);
-
+// console.log('Login pressed' + text);
+// console.log('valUserName pressed' + this.valUserName);
+// console.log('valPassName pressed' + this.valPassName);
+if (this.valUserName !== '' ) {
 if (this.valUserName === this.valPassName) {
 console.log('shi hai boss');
 this.navigateForm();
 }
+} else if(this.valUserName === null || this.valUserName === '' ) {
+  console.log('Field bharo bhiaya');
+
+ }
 }
 constructor(private router: Router) {}
 navigateForm() {
@@ -37,3 +41,4 @@ ngOnInit() {
 }
 
 }
+
